@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>register, Page</title>
+{% endblock title  %}
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Messages</strong>{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+<h1>registe page</h1>
+
+<div class="container">
+<form action='{% url 'user_register' %}' method="POST">
+     {% csrf_token %} 
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="fisrtname">
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lastname">
+      </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+        <div id="emailHelp"  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name ="username" aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password1</label>
+      <input type="password" name="password1" class="form-control" id="password1">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password2</label>
+        <input type="password" name="password2" class="form-control" id="password2">
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock body %}
+
